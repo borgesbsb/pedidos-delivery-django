@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listagem de cliente
+{% endblock title %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Dados do cliente
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Nome: {{cliente.nome}}</h5>
+        <h5 class="card-title">Sexo: {{cliente.sexo}}</h5>
+        <h5 class="card-title">Data de Nascimento: {{cliente.data_nascimento}}</h5>
+        <h5 class="card-title">Email: {{cliente.email}}</h5>
+        <h5 class="card-title">Profissão: {{cliente.profissao}}</h5>
+        <hr>
+        <h4>Endereço</h4>
+        <h5 class="card-title" >Rua: {{ cliente.endereco.rua }}</h5>
+        <h5 class="card-title" >Numero: {{ cliente.endereco.numero}}</h5>
+        <h5 class="card-title" >Complemento: {{ cliente.endereco.complemento }}</h5>
+        <h5 class="card-title" >Bairro: {{ cliente.endereco.bairro }}</h5>
+        <h5 class="card-title" >Cidade: {{ cliente.endereco.cidade }}</h5>
+        <h5 class="card-title" >País: {{ cliente.endereco.pais }}</h5>
+    </div>
+</div>
+
+{% endblock %}
+
