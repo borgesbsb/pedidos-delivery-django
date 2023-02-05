@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listagem de pedido
+{% endblock title %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+        Dados do Pedido
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Nome: {{pedido.cliente.nome}}</h5>
+        <h5 class="card-title">Observacoes: {{pedido.observacoes}}</h5>
+        <h5 class="card-title">Data do pedido: {{pedido.data_pedido}}</h5>
+        <h5 class="card-title">Status: {{pedido.status}}</h5>
+        <h5 class="card-title">Valor: {{pedido.valor}}</h5>
+        <hr>
+    </div>
+</div>
+
+{% endblock %}
+
