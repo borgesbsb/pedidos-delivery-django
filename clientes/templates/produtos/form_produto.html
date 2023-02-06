@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load meus_filtros %}
+
+{% block title %}
+Cadastrar produto
+{% endblock title %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        {{ form_produto.nome.errors }}
+        <label>Nome: </label>
+        {{ form_produto.nome|addclass:'form-control'}}
+    </div>
+
+    <div class="form-group">
+        {{ form_produto.descricao.errors }}
+        <label>Descricação: </label>
+        {{ form_produto.descricao|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
+        <input type="submit" name="Cadastrar">
+    </div>
+</form>
+{% endblock content %}
