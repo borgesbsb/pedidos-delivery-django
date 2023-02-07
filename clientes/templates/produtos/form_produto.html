@@ -21,6 +21,12 @@ Cadastrar produto
     </div>
 
     <div class="form-group">
+        {{ form_produto.descricao.errors }}
+        <label>Valor: </label>
+        {{ form_produto.valor|addclass:'form-control' }}
+    </div>
+
+    <div class="form-group">
         <input type="submit" name="Cadastrar">
     </div>
 </form>

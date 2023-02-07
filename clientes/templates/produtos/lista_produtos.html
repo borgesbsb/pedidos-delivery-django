@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listagem de Produtos
+{% endblock title %}
+
+{% block content %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in produtos %}
+            <tr>
+                <td><a href="{% url 'listar_produto_id' i.id %}">{{ i.nome }}</a></td>
+                <td>{{ i.descricao }}</td>
+                <td>{{ i.valor }}</td>
+                <td>
+                    <a href="#">Editar</a>
+                    <a href="#">Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'cadastrar_produto' %}"><button class="btn btn-primary">Cadastrar</button></a>
+{% endblock content %}
