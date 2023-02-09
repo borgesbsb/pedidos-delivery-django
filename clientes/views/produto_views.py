@@ -23,3 +23,14 @@ def listar_produtos(request):
 def listar_produto_id(request, id):
     produto = produto_service.listar_produto_id(id)
     return render(request, 'produtos/lista_produto.html',{"produto":produto})
+
+##########
+def remover_cliente(request, id):
+    cliente = cliente_service.listar_cliente_id(id)
+    endereco = endereco_service.listar_endereco_id(cliente.endereco.id)
+    
+    if request.method == "POST":
+        cliente_service.remover_cliente(cliente)
+        endereco_service.remover_endereco(endereco)
+        return redirect('listar_clientes')
+    return render(request, 'clientes/confirma_exclusao.html', {'cliente': cliente})
