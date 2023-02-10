@@ -23,3 +23,4 @@ def listar_produtos(request):
 def listar_produto_id(request, id):
     produto = produto_service.listar_produto_id(id)
     return render(request, 'produtos/lista_produto.html',{"produto":produto})
+ 
