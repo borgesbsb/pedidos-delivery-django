@@ -13,11 +13,13 @@ def inserir_pedido(request):
             valor = form_pedido.cleaned_data["valor"]
             status = form_pedido.cleaned_data["status"]
             data_pedido = form_pedido.cleaned_data["data_pedido"]
+            produtos = form_pedido.cleaned_data["produtos"]
             pedido_novo = pedido.Pedido( cliente=cliente,
                                         observacoes=observacoes, 
                                         valor=valor,
                                         status=status,
-                                        data_pedido=data_pedido 
+                                        data_pedido=data_pedido,
+                                        produtos=produtos 
                                         )
             pedido_service.cadastrar_pedido(pedido_novo)
             return redirect('listar_pedidos')

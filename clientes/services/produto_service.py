@@ -10,5 +10,5 @@ def listar_produtos():
     return produtos
 
 def listar_produto_id(id):
-    pedido = Produto.objects.get(id=id)
-    return pedido
+    produto = Produto.objects.get(id=id)
+    return produto

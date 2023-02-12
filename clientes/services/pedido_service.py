@@ -1,4 +1,5 @@
 from ..models import Pedido
+from .produto_service import *
 
 
 def cadastrar_pedido(pedido):
@@ -9,6 +10,10 @@ def cadastrar_pedido(pedido):
                                       status=pedido.status, 
                                       observacoes=pedido.observacoes)
     pedido_bd.save()
+    for i in pedido.produtos:
+        produto = listar_produto_id(i.id)
+        pedido_bd.produtos.add(produto)
+        
 
 
     
