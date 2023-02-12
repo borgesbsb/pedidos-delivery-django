@@ -31,6 +31,7 @@ def editar_pedido(pedido, pedido_novo):
     pedido.valor = pedido_novo.valor
     pedido.status = pedido_novo.status
     pedido.observacoes = pedido_novo.observacoes
+    pedido.produtos.set(pedido_novo.produtos)
     pedido.save(force_update=True)
 
 
