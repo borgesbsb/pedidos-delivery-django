@@ -14,9 +14,6 @@ def cadastrar_pedido(pedido):
         produto = listar_produto_id(i.id)
         pedido_bd.produtos.add(produto)
         
-
-
-    
 def listar_pedidos():
     pedidos = Pedido.objects.all()
     return pedidos

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.db.models.signals import m2m_changed
 
 # Create your models here.
 class Endereco(models.Model):
@@ -44,6 +45,20 @@ class Pedido(models.Model):
     
     def __str__(self):
         return self.cliente.nome
+
+
+def pre_save_produto_receiver(sender, instance, action, **kwargs ):
+    if action == 'post_add' or action == 'post_remove' or action == 'post_clear':
+        produtos = instance.produtos.all()
+        total = 0
+        for i in produtos:
+            total += i.valor
+        instance.valor = total
+        instance.save()
+
+m2m_changed.connect(pre_save_produto_receiver, sender=Pedido.produtos.through)
+    
+
 
 class Cliente(models.Model):
     SEXO_CHOICES = (
